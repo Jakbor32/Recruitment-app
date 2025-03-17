@@ -1,0 +1,220 @@
+Screens:
+  Show_PDF_screen:
+    Properties:
+      Fill: =RGBA(255, 255, 255, 1)
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Screen_title_5:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(227, 234, 243, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =80
+            Size: =20
+            Text: ="Reports / Raporty"
+            Width: =1366
+      - Pdf_container:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =646
+            Width: =290
+            X: =40
+            Y: =102
+          Children:
+            - attachments_gallery:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(237, 237, 237, 1)
+                  Height: =646
+                  Items: =Raporty_z_wniosku
+                  TemplateSize: =82
+                  Width: =290
+                Children:
+                  - created_label_2:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(50, 49, 48, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =44
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.Title
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =126
+                        X: =81
+                        Y: =24
+                  - separator_2:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =3
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                  - marker_block_2:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(0, 18, 107, 1)
+                        Height: =Parent.TemplateHeight - separator_2.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                  - pdf_icon:
+                      Control: Classic/Icon@2.5.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 18, 107, 1)
+                        Height: =48
+                        Icon: =Icon.DocumentPDF
+                        OnSelect: =Select(Parent)
+                        Width: =60
+                        X: =21
+                        Y: =20
+                  - show_attachment:
+                      Control: Classic/Icon@2.5.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 18, 107, 1)
+                        Height: =49
+                        Icon: =Icon.ChevronRight
+                        OnSelect: =Select(Parent)
+                        Width: =26
+                        X: =222
+                        Y: =17
+      - get_attachments_gallery_no_visible:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =2
+            Items: =attachments_gallery.Selected.Attachments
+            Visible: =false
+            Width: =52
+            X: =1312
+            Y: =766
+      - shadow_bg:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Group: Right_section_pdf_viewer
+          Properties:
+            Height: =646
+            Width: =958
+            X: =381
+            Y: =102
+      - pdf_viewer:
+          Control: PDFViewer@2.5.0
+          Group: Right_section_pdf_viewer
+          Properties:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Document: =get_attachments_gallery_no_visible.Selected.Value
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =616
+            Width: =923
+            X: =402
+            Y: =117
+      - open_in_new_tab_btn:
+          Control: Classic/Icon@2.5.0
+          Group: Right_section_pdf_viewer
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =42
+            Icon: =Icon.OpenInNewWindow
+            OnSelect: =Launch(get_attachments_gallery_no_visible.Selected.AbsoluteUri)
+            Width: =44
+            X: =1230
+            Y: =678
+      - Menu_container_5:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Fill: =RGBA(214, 221, 224, 1)
+            Height: =65
+            Width: =366
+            X: =996
+            Y: =2
+          Children:
+            - move_to_add_req_btn_5:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Add"
+                  OnSelect: =Navigate(Add_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =21
+                  Y: =9
+            - move_to_pdf_btn_5:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  BorderColor: =RGBA(39, 113, 194, 1)
+                  BorderStyle: =BorderStyle.Solid
+                  BorderThickness: =3
+                  Height: =25
+                  Icon: ="DocumentPdf"
+                  OnSelect: =Navigate(Show_PDF_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =134
+                  Y: =36
+            - move_to_preview_btn_5:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="AppsList"
+                  OnSelect: =Navigate(Preview_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =248
+                  Y: =9
+            - move_to_correct_req_btn_5:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Edit"
+                  OnSelect: =Navigate(Correct_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =134
+                  Y: =9
+            - move_to_my_req_btn_5:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Person"
+                  OnSelect: =Navigate(My_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =248
+                  Y: =36
+            - move_to_all_req_btn_5:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Search"
+                  OnSelect: =Navigate(All_requests_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =21
+                  Y: =36

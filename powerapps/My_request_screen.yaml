@@ -1,0 +1,532 @@
+Screens:
+  My_request_screen:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - My_requests_gallery:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =639
+            Items: |+
+              =Filter(Wnioski, 'Created By'.Email = Office365Users.MyProfile().Mail)
+            TemplateSize: =71
+            Width: =1366
+            Y: =128
+          Children:
+            - avatar_bg:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: '=ColorFade(Self.Fill, -15%) '
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Font: =Font.'Open Sans'
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnSelect: =Select(Parent)
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Text: =
+                  Width: =40
+                  X: =16
+                  Y: =14
+            - status_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =68
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.Status.Value
+                  Width: =223
+                  X: =55
+            - open_request:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  AccessibleLabel: =Self.Tooltip
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Color: =RGBA(0, 0, 0, 1)
+                  DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                  DisabledColor: =RGBA(119, 119, 119, 1)
+                  Height: =65
+                  Icon: =Icon.ChevronRight
+                  OnSelect: |-
+                    =Navigate(Preview_request_screen, ScreenTransition.Fade, {selectedItem: ThisItem})
+                  PaddingBottom: =16
+                  PaddingLeft: =16
+                  PaddingRight: =16
+                  PaddingTop: =16
+                  Tooltip: ="View item details"
+                  Width: =50
+                  X: =1315
+                  Y: =2
+            - separator:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(214, 221, 224, 1)
+                  Height: =4
+                  OnSelect: =Select(Parent)
+                  Width: =Parent.TemplateWidth
+                  Y: =Parent.TemplateHeight - Self.Height
+            - maker_block:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(0, 18, 107, 1)
+                  Height: =Parent.TemplateHeight - separator.Height
+                  OnSelect: =Select(Parent)
+                  Visible: =ThisItem.IsSelected
+                  Width: =4
+            - position_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =67
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.'Stanowisko / Position'
+                  Width: =155
+                  X: =278
+            - location_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =67
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.'Lokalizacja / Location'.Value
+                  Width: =138
+                  X: =433
+            - place_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =67
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.'Miejsce wykonywania pracy / Place of Work'
+                  Width: =164
+                  X: =566
+            - contract_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =67
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.'Rodzaj umowy / Type of contract'.Value
+                  Width: =181
+                  X: =730
+                  Y: =1
+            - created_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =67
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =Text(ThisItem.Created, "dd/mm/yyyy hh:mm")
+                  Width: =144
+                  X: =897
+            - salary_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =66
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.'Wysokość wynagrodzenia / Salary' &" "&ThisItem.'Waluta / Currency'.Value
+                  Width: =151
+                  X: =1041
+                  Y: =1
+            - rate_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =66
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.'Stawka / Rate (brutto (gross) / netto (net) / brutto brutto (gross gross)'.Value
+                  Width: =105
+                  X: =1192
+                  Y: =2
+            - id_field:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =66
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =10
+                  Text: =ThisItem.ID
+                  Width: =72
+                  Y: =1
+            - edit_icon:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(0, 0, 0, 1)
+                  Height: =65
+                  Icon: =Icon.Edit
+                  OnSelect: |-
+                    =Navigate(Correct_request_screen, ScreenTransition.Fade, {selectedItem: ThisItem})
+                  Width: =18
+                  X: =1297
+                  Y: =2
+      - Screen_title_3:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(227, 234, 243, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =71
+            Size: =20
+            Text: |-
+              ="My requests / Moje wnioski
+              "
+            Width: =1366
+      - No_requests_label:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =640
+            Size: =20
+            Text: ="Brak wniosków / No requests"
+            Visible: =If(CountRows(My_requests_gallery.AllItems) > 0, false, true)
+            Width: =1366
+            Y: =128
+      - group_bg:
+          Control: Rectangle@2.3.0
+          Group: Labels_group
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(227, 234, 243, 0.5)
+            Height: =57
+            Width: =1366
+            Y: =71
+      - id_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: |-
+              ="ID
+              "
+            Width: =61
+            Y: =71
+      - status_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: ="Status"
+            Width: =209
+            X: =61
+            Y: =71
+      - position_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: ="Stanowisko/Position"
+            Width: =185
+            X: =270
+            Y: =71
+      - location_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: ="Lokalizacja/Location"
+            Width: =101
+            X: =455
+            Y: =71
+      - place_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: ="Miejsce wykonywania pracy / Place of Work"
+            Width: =185
+            X: =556
+            Y: =71
+      - contract_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: ="Rodzaj umowy/ Type of contract"
+            X: =741
+            Y: =71
+      - created_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: ="Utworzony/Created"
+            Width: =99
+            X: =921
+            Y: =71
+      - salary_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: ="Wysokość wynagrodzenia/Salary"
+            Width: =175
+            X: =1020
+            Y: =71
+      - rate_label:
+          Control: Label@2.5.1
+          Group: Labels_group
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =57
+            Size: =11
+            Text: ="Stawka/Rate"
+            Width: =124
+            X: =1195
+            Y: =71
+      - Menu_container_3:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Fill: =RGBA(214, 221, 224, 1)
+            Height: =65
+            Width: =366
+            X: =996
+            Y: =2
+          Children:
+            - move_to_add_req_btn_3:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Add"
+                  OnSelect: =Navigate(Add_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =21
+                  Y: =9
+            - move_to_pdf_btn_3:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="DocumentPdf"
+                  OnSelect: "=If(\r\n    varIsHrUser, \r\n    Navigate(Show_PDF_screen, ScreenTransition.Fade), \r\n        Set(NotificationMessage_value, \"Brak dostępu!\");\r\n        Set(NotificationType_value, Toast_notification_3.NotificationTypes.Error);\r\n        Reset(Toast_notification_3);\r\n    \r\n)\r\n"
+                  Text: =
+                  X: =134
+                  Y: =36
+            - move_to_preview_btn_3:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="AppsList"
+                  OnSelect: =Navigate(Preview_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =248
+                  Y: =9
+            - move_to_correct_req_btn_3:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Edit"
+                  OnSelect: =Navigate(Correct_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =134
+                  Y: =9
+            - move_to_my_req_btn_3:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  BorderColor: =RGBA(39, 113, 194, 1)
+                  BorderStyle: =BorderStyle.Solid
+                  BorderThickness: =3
+                  Height: =25
+                  Icon: ="Person"
+                  OnSelect: =Navigate(My_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =248
+                  Y: =36
+            - move_to_all_req_btn_3:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Search"
+                  OnSelect: "=If(\r\n    varIsHrUser, \r\n    Navigate(All_requests_screen, ScreenTransition.Fade), \r\n        Set(NotificationMessage_value, \"Brak dostępu!\");\r\n        Set(NotificationType_value, Toast_notification_3.NotificationTypes.Error);\r\n        Reset(Toast_notification_3);\r\n    \r\n)\r\n"
+                  Text: =
+                  X: =21
+                  Y: =36
+      - Level_access:
+          Control: Text@0.0.50
+          Properties:
+            Height: =23
+            Text: |+
+              =If(varIsHrUser, "Access: " & "HR", If(varIsAllUser, "Access: " & "Limited", "User is not in any group"))
+            Width: =140
+            Y: =2
+      - Toast_notification_3:
+          Control: CanvasComponent
+          ComponentName: Toast Notification
+          Properties:
+            Duration: =2000
+            Font: =Font.'Segoe UI'
+            FontSize: =9
+            Height: =67
+            Icons: |-
+              ={
+                  Success: $"data:image/svg+xml; utf-8, { EncodeUrl($"<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g>
+              <ellipse xmlns='http://www.w3.org/2000/svg' style='' cx='256' cy='256' rx='256' ry='255.832' fill='#ffffff' data-original='#32bea6' class=''></ellipse>
+              <polygon xmlns='http://www.w3.org/2000/svg' style='' points='235.472,392.08 114.432,297.784 148.848,253.616 223.176,311.52 345.848,134.504   391.88,166.392 ' fill='{ Toast_notification_3.Styles.Colors.Success }' data-original='#ffffff'></polygon></g></svg>") }",
+                  Warning: $"data:image/svg+xml; utf-8, { EncodeUrl($"<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 128 128' style='enable-background:new 0 0 512 512' xml:space='preserve' class='hovered-paths'><g><g xmlns='http://www.w3.org/2000/svg'><path d='m56.463 14.337-49.563 92.307c-2.8 5.217 1.273 11.356 7.537 11.356h99.126c6.264 0 10.338-6.139 7.537-11.356l-49.563-92.307c-3.106-5.783-11.968-5.783-15.074 0z' fill='#ffffff' data-original='#ffffff' class='hovered-path'></path><g fill='{ Toast_notification_3.Styles.Colors.Warning }'><path d='m64 31.726a5.418 5.418 0 0 0 -5.5 5.45l1.017 44.289a4.422 4.422 0 0 0 4.483 4.261 4.422 4.422 0 0 0 4.482-4.261l1.018-44.289a5.418 5.418 0 0 0 -5.5-5.45z' fill='{ Toast_notification_3.Styles.Colors.Warning }' data-original='{ Toast_notification_3.Styles.Colors.Warning }'></path><circle cx='64' cy='100.222' r='6' fill='{ Toast_notification_3.Styles.Colors.Warning }' data-original='{ Toast_notification_3.Styles.Colors.Warning }'></circle></g></g></g></svg>") }",
+                  Error: $"data:image/svg+xml; utf-8, { EncodeUrl($"<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g>
+              <ellipse xmlns='http://www.w3.org/2000/svg' style='' cx='256' cy='256' rx='256' ry='255.832' fill='#ffffff' data-original='#e04f5f' class=''></ellipse>
+              <g xmlns='http://www.w3.org/2000/svg' transform='matrix(-0.7071 0.7071 -0.7071 -0.7071 77.26 32)'>
+              <rect x='3.98' y='-427.615' style='' width='55.992' height='285.672' fill='{ Toast_notification_3.Styles.Colors.Error }' data-original='#ffffff' class=''></rect>
+              <rect x='-110.828' y='-312.815' style='' width='285.672' height='55.992' fill='{ Toast_notification_3.Styles.Colors.Error }' data-original='#ffffff' class=''></rect>
+              </g></g></svg>") }",
+                  Info: $"data:image/svg+xml; utf-8, { EncodeUrl($"<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g>
+              <g xmlns='http://www.w3.org/2000/svg'><g><g><path d='M290.211,360.727c-5.234,0.488-10.489-0.693-15.011-3.375c-3.304-3.392-4.888-8.101-4.305-12.8     c0.122-3.912,0.589-7.806,1.396-11.636c0.781-4.394,1.79-8.744,3.025-13.033l13.731-47.244c1.416-4.663,2.352-9.459,2.793-14.313     c0-5.236,0.698-8.844,0.698-10.938c0.292-9.333-3.693-18.289-10.822-24.32c-8.769-6.732-19.689-10.041-30.72-9.309     c-7.905,0.119-15.749,1.413-23.273,3.84c-8.223,2.56-16.873,5.624-25.949,9.193l-3.956,15.36     c2.676-0.931,5.935-1.978,9.658-3.142c3.552-1.052,7.234-1.601,10.938-1.629c5.196-0.563,10.426,0.713,14.778,3.607     c2.956,3.527,4.343,8.109,3.84,12.684c-0.013,3.913-0.442,7.814-1.28,11.636c-0.815,4.073-1.862,8.378-3.142,12.916     l-13.847,47.476c-1.116,4.413-2.009,8.879-2.676,13.382c-0.544,3.855-0.816,7.743-0.815,11.636     c-0.057,9.397,4.24,18.291,11.636,24.087c8.904,6.837,19.98,10.226,31.185,9.542c7.89,0.162,15.753-0.978,23.273-3.375     c6.594-2.25,15.399-5.469,26.415-9.658l3.724-14.662c-2.984,1.238-6.057,2.249-9.193,3.025     C298.346,360.583,294.274,360.935,290.211,360.727z' fill='#ffffff' data-original='#ffffff' class=''></path><path d='M304.756,136.727c-6.333-5.816-14.677-8.945-23.273-8.727c-8.591-0.194-16.927,2.932-23.273,8.727     c-11.632,10.03-12.931,27.591-2.9,39.224c0.894,1.037,1.863,2.006,2.9,2.9c13.252,11.853,33.294,11.853,46.545,0     c11.632-10.129,12.851-27.769,2.722-39.401C306.635,138.481,305.725,137.571,304.756,136.727z' fill='#ffffff' data-original='#ffffff' class=''></path><path d='M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,488.727     C127.468,488.727,23.273,384.532,23.273,256S127.468,23.273,256,23.273S488.727,127.468,488.727,256S384.532,488.727,256,488.727     z' fill='#ffffff' data-original='#ffffff' class=''></path></g></g></g></g></svg>") }"
+              }
+            NavigateToScreenWhenNotificationCloses: =App.ActiveScreen
+            NotificationHeight: =60
+            NotificationMessage: =NotificationMessage_value
+            NotificationType: =NotificationType_value
+            NotificationWidth: =310
+            Styles: |-
+              ={
+                  Colors: 
+                  {
+                      Success: "#28a745",
+                      Warning: "#ffc107",
+                      Error: "#dc3545",
+                      Info: "#17a2b8"
+                  }
+              }
+            Visible: =Self.OutIsShowNotification
+            Width: =Toast_notification_3.NotificationWidth
+            Y: =5

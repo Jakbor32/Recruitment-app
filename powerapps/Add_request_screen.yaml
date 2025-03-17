@@ -1,0 +1,619 @@
+Screens:
+  Add_request_screen:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Container_form:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =674
+            Width: =885
+            X: =15
+            Y: =84
+          Children:
+            - dropdown_location:
+                Control: DropDown@0.0.44
+                Group: Field_location
+                Properties:
+                  Items: =Lokalizacja
+                  X: =40
+                  Y: =40
+                Children:
+                  - Lokalizacja2:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Lokalizacja"
+                        FieldName: ="Lokalizacja"
+                        FieldType: ="s"
+                        Order: =2
+            - position_input:
+                Control: TextInput@0.0.53
+                Group: Field_position
+                Properties:
+                  X: =40
+                  Y: =108
+            - form_location_label:
+                Control: Text@0.0.50
+                Group: Field_location
+                Properties:
+                  Height: =20
+                  Text: ="Lokalizacja / Location *"
+                  Width: =183
+                  X: =40
+                  Y: =20
+            - form_position_label:
+                Control: Text@0.0.50
+                Group: Field_position
+                Properties:
+                  Height: =20
+                  Text: ="Stanowisko / Position *"
+                  Width: =161
+                  X: =40
+                  Y: =88
+            - form_minors_label:
+                Control: Text@0.0.50
+                Group: Field_minors
+                Properties:
+                  Height: =20
+                  Text: ="Praca z osobami niepełnoletnimi / Working with minors"
+                  Width: =361
+                  X: =40
+                  Y: =155
+            - dropdown_minors:
+                Control: DropDown@0.0.44
+                Group: Field_minors
+                Properties:
+                  Items: |+
+                    =FirstN(Akceptanci, 2)
+                  X: =40
+                  Y: =175
+                Children:
+                  - dziecko1:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="dziecko"
+                        FieldName: ="dziecko"
+                        FieldType: ="s"
+                        Order: =6
+            - place_input:
+                Control: TextInput@0.0.53
+                Group: FIeld_place
+                Properties:
+                  X: =40
+                  Y: =244
+            - form_place_label:
+                Control: Text@0.0.50
+                Group: FIeld_place
+                Properties:
+                  Height: =20
+                  Text: ="Miejsce wykonywania pracy / Place of work *"
+                  Width: =320
+                  X: =40
+                  Y: =224
+            - form_contract_label:
+                Control: Text@0.0.50
+                Group: Field_type_contract
+                Properties:
+                  Height: =20
+                  Text: ="Rodzaj umowy / Type of contract *"
+                  Width: =320
+                  X: =40
+                  Y: =289
+            - form_date_label:
+                Control: Text@0.0.50
+                Group: Field_date
+                Properties:
+                  Height: =20
+                  Text: ="Planowana data zatrudnienia / Planned starting date "
+                  Width: =361
+                  X: =40
+                  Y: =351
+            - form_working_time_label:
+                Control: Text@0.0.50
+                Group: Field_working_time
+                Properties:
+                  Height: =20
+                  Text: ="Wymiar etatu / Working time *"
+                  Width: =361
+                  X: =40
+                  Y: =414
+            - form_reason_label:
+                Control: Text@0.0.50
+                Group: Field_reason
+                Properties:
+                  Height: =20
+                  Text: ="Powód otworzenia wakatu / Reason of vacancy *"
+                  Width: =340
+                  X: =40
+                  Y: =478
+            - dropdown_working_time:
+                Control: DropDown@0.0.44
+                Group: Field_working_time
+                Properties:
+                  Items: =Wymiar_etatu
+                  X: =40
+                  Y: =434
+                Children:
+                  - Wymiar_etatu1:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Wymiar_etatu"
+                        FieldName: ="Wymiar_etatu"
+                        FieldType: ="s"
+                        Order: =2
+            - dropdown_contract:
+                Control: DropDown@0.0.44
+                Group: Field_type_contract
+                Properties:
+                  Items: =Rodzaj_umowy
+                  X: =40
+                  Y: =309
+                Children:
+                  - Rodzaj_umowy1:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Rodzaj_umowy"
+                        FieldName: ="Rodzaj_umowy"
+                        FieldType: ="s"
+                        Order: =2
+            - date_picker:
+                Control: DatePicker@0.0.42
+                Group: Field_date
+                Properties:
+                  X: =40
+                  Y: =371
+            - reson_textarea:
+                Control: TextInput@0.0.53
+                Group: Field_reason
+                Properties:
+                  Height: =99
+                  Mode: ='TextInputCanvas.Mode'.Multiline
+                  X: =40
+                  Y: =498
+            - salary_input:
+                Control: NumberInput@2.9.9
+                Group: Field_salary
+                Properties:
+                  Appearance: ='NumberInput.Appearance'.FilledDarker
+                  Max: =99999
+                  Min: =0
+                  Precision: ='NumberInput.Precision'.'2'
+                  Value: =0
+                  X: =401
+                  Y: =40
+            - form_salary_label:
+                Control: Text@0.0.50
+                Group: Field_salary
+                Properties:
+                  Height: =20
+                  Text: ="Wysokość wynagrodzenia / Salary *"
+                  Width: =331
+                  X: =401
+                  Y: =20
+            - dropdown_rate:
+                Control: DropDown@0.0.44
+                Group: Field_rate
+                Properties:
+                  Items: =Typ_stawki
+                  X: =401
+                  Y: =108
+                Children:
+                  - Stawka1:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Stawka"
+                        FieldName: ="Stawka"
+                        FieldType: ="s"
+                        Order: =2
+            - form_rate_label:
+                Control: Text@0.0.50
+                Group: Field_rate
+                Properties:
+                  Height: =21
+                  Text: ="Stawka / Rate (brutto (gross) / netto (net) / brutto brutto (gross gross)"
+                  Width: =487
+                  X: =401
+                  Y: =87
+            - form_currency_label:
+                Control: Text@0.0.50
+                Group: Field_currency
+                Properties:
+                  Height: =20
+                  Text: ="Waluta / Currency *"
+                  Width: =320
+                  X: =401
+                  Y: =155
+            - dropdown_currency:
+                Control: DropDown@0.0.44
+                Group: Field_currency
+                Properties:
+                  Items: =Waluty
+                  X: =401
+                  Y: =175
+                Children:
+                  - Waluta1:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Waluta"
+                        FieldName: ="Waluta"
+                        FieldType: ="s"
+                        Order: =2
+            - team_code_input:
+                Control: TextInput@0.0.53
+                Group: Field_team_code
+                Properties:
+                  X: =401
+                  Y: =244
+            - form_team_code_label:
+                Control: Text@0.0.50
+                Group: Field_team_code
+                Properties:
+                  Height: =20
+                  Text: ="Kod zespołu / Team code *"
+                  Width: =320
+                  X: =401
+                  Y: =224
+            - project_code_input:
+                Control: TextInput@0.0.53
+                Group: Field_project_code
+                Properties:
+                  X: =401
+                  Y: =309
+            - form_project_code_label:
+                Control: Text@0.0.50
+                Group: Field_project_code
+                Properties:
+                  Height: =20
+                  Text: ="Kod projektu / Project code *"
+                  Width: =320
+                  X: =401
+                  Y: =289
+            - source_input:
+                Control: TextInput@0.0.53
+                Group: Field_source
+                Properties:
+                  X: =401
+                  Y: =371
+            - form_source_label:
+                Control: Text@0.0.50
+                Group: Field_source
+                Properties:
+                  Height: =20
+                  Text: ="Źródło finansowania / Source of funding *"
+                  Width: =320
+                  X: =401
+                  Y: =351
+            - dropdown_cd:
+                Control: DropDown@0.0.44
+                Group: Field_cd
+                Properties:
+                  Items: =Akceptanci
+                  X: =401
+                  Y: =434
+                Children:
+                  - Country2:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Country"
+                        FieldName: ="Country"
+                        FieldType: ="s"
+                        Order: =5
+            - form_cd_label:
+                Control: Text@0.0.50
+                Group: Field_cd
+                Properties:
+                  Height: =20
+                  Text: ="Country Director Approval *"
+                  Width: =320
+                  X: =401
+                  Y: =414
+            - form_financial_label:
+                Control: Text@0.0.50
+                Group: Field_financial
+                Properties:
+                  Height: =20
+                  Text: ="Financial Approval *"
+                  Width: =320
+                  X: =401
+                  Y: =478
+            - dropdown_financial:
+                Control: DropDown@0.0.44
+                Group: Field_financial
+                Properties:
+                  Items: |+
+                    =FirstN(Akceptanci, 5)
+                  X: =401
+                  Y: =498
+                Children:
+                  - Financial3:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Financial"
+                        FieldName: ="Financial"
+                        FieldType: ="s"
+                        Order: =3
+            - form_director_label:
+                Control: Text@0.0.50
+                Group: Field_director
+                Properties:
+                  Height: =20
+                  Text: ="Executive Directror / Board of Member Approval *"
+                  Width: =320
+                  X: =401
+                  Y: =537
+            - dropdown_director:
+                Control: DropDown@0.0.44
+                Group: Field_director
+                Properties:
+                  Items: |+
+                    =FirstN(Akceptanci, 4)
+                  X: =401
+                  Y: =565
+                Children:
+                  - Director4:
+                      Control: DropDownDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Director"
+                        FieldName: ="Director"
+                        FieldType: ="s"
+                        Order: =4
+            - save_btn:
+                Control: Button@0.0.44
+                Group: Form_btns
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                  OnSelect: "=Set(varMessages, \"\");\n\nSet(NotificationMessage_value, \"\");\n\n\nIf(\n    IsBlank(dropdown_location.Selected.ID) || IsBlank(dropdown_location.Selected.Lokalizacja),\n    Set(NotificationMessage_value, \"Wymagana lokalizacja.\")\n);\nIf(\n    IsBlank(position_input.Value),\n    Set(NotificationMessage_value, \"Wymagane stanowisko.\")\n);\nIf(\n    IsBlank(place_input.Value),\n    Set(NotificationMessage_value, \"Wymagane miejsce wykonywania pracy.\")\n);\nIf(\n    IsBlank(dropdown_contract.Selected.ID) || IsBlank(dropdown_contract.Selected.Rodzaj_umowy),\n    Set(NotificationMessage_value, \"Wymagany rodzaj umowy.\")\n);\nIf(\n    IsBlank(dropdown_working_time.Selected.ID) || IsBlank(dropdown_working_time.Selected.Wymiar_etatu),\n    Set(NotificationMessage_value, \"Wymiar etatu jest wymagany.\")\n);\nIf(\n    IsBlank(reson_textarea.Value),\n    Set(NotificationMessage_value, \"Wymagany powód otworzenia wakatu.\")\n);\nIf(\n    IsBlank(salary_input.Value) || Value(salary_input.Value) <= 0,\n    Set(NotificationMessage_value, \"Wymagana wysokość wynagrodzenia.\")\n);\nIf(\n    IsBlank(dropdown_currency.Selected.ID) || IsBlank(dropdown_currency.Selected.Waluta),\n    Set(NotificationMessage_value, \"Wymagana waluta.\")\n);\nIf(\n    IsBlank(team_code_input.Value),\n    Set(NotificationMessage_value, \"Wymagany kod zespołu.\")\n);\nIf(\n    IsBlank(project_code_input.Value),\n    Set(NotificationMessage_value, \"Wymagany kod projektu.\")\n);\nIf(\n    IsBlank(source_input.Value),\n    Set(NotificationMessage_value, \"Wymagane źródło finansowania.\")\n);\nIf(\n    IsBlank(dropdown_cd.Selected.ID) || IsBlank(dropdown_cd.Selected.Country),\n    Set(NotificationMessage_value, \"Zatwierdzenie przez Country Director jest wymagane.\")\n);\nIf(\n    IsBlank(dropdown_financial.Selected.ID) || IsBlank(dropdown_financial.Selected.Financial),\n    Set(NotificationMessage_value, \"Zatwierdzenie finansowe jest wymagane.\")\n);\nIf(\n    IsBlank(dropdown_director.Selected.ID) || IsBlank(dropdown_director.Selected.Director),\n    Set(NotificationMessage_value, \"Zatwierdzenie przez Executive Director jest wymagane.\")\n);\n\nIf(\n    Len(NotificationMessage_value) > 0 && !IsBlank(varMessages), \n    Set(varMessages, varMessages & \" \" & NotificationMessage_value),\n    Set(varMessages, NotificationMessage_value) \n);\n\n\nIf(\n    Len(varMessages) > 0, \n    Set(NotificationType_value, Toast_notification_1.NotificationTypes.Error),\n     Set(\n        NotificationType_value, \n        Toast_notification_1.NotificationTypes.Success\n    );\n    Set(NotificationMessage_value, \"Wniosek został poprawnie złożony.\")\n);\n\nReset(Toast_notification_1);\n\n\nIf(\n    Len(varMessages) <= 0, \n    Patch(\n        Wnioski,\n        Defaults(Wnioski),\n        {\n            'Lokalizacja / Location': {\n                Id: dropdown_location.Selected.ID,\n                Value: dropdown_location.Selected.Lokalizacja\n            },\n            'Stanowisko / Position': position_input.Value,\n            'Praca z osobami niepełnoletnimi / Working with minors ': {\n                Id: dropdown_minors.Selected.ID,\n                Value: dropdown_minors.Selected.dziecko\n            },\n            'Miejsce wykonywania pracy / Place of Work': place_input.Value,\n            'Rodzaj umowy / Type of contract': {\n                Id: dropdown_contract.Selected.ID,\n                Value: dropdown_contract.Selected.Rodzaj_umowy\n            },\n            'Planowana data zatrudnienia / Planned starting date': date_picker.SelectedDate,\n            'Wymiar etatu / Working time': {\n                Id: dropdown_working_time.Selected.ID,\n                Value: dropdown_working_time.Selected.Wymiar_etatu\n            },\n            'Powód otworzenia wakatu / Reason of vacancy': reson_textarea.Value,\n            'Wysokość wynagrodzenia / Salary': salary_input.Value,\n            'Stawka / Rate (brutto (gross) / netto (net) / brutto brutto (gross gross)': {\n                Id: dropdown_working_time.Selected.ID,\n                Value: dropdown_rate.Selected.Stawka\n            },\n            'Waluta / Currency': {\n                Id: dropdown_currency.Selected.ID,\n                Value: dropdown_currency.Selected.Waluta\n            },\n            'Kod zespołu / Team code': team_code_input.Value,\n            'Kod projektu / Project code': project_code_input.Value,\n            'Źródło finansowania / Source of funding': source_input.Value,\n            'Country Director Approval': {\n                Id: dropdown_cd.Selected.ID,\n                Value: dropdown_cd.Selected.Country\n            },\n            'Financial Approval': {\n                Id: dropdown_financial.Selected.ID,\n                Value: dropdown_financial.Selected.Financial\n            },\n            ' Executive Director / Board Member Approval': {\n                Id: dropdown_director.Selected.ID,\n                Value: dropdown_director.Selected.Director\n            }\n        }\n    );\n    \n\n\n   \n    Reset(dropdown_location);\n    Reset(position_input); \n    Reset(place_input); \n    Reset(dropdown_contract); \n    Reset(dropdown_working_time); \n    Reset(reson_textarea);\n    Reset(dropdown_rate); \n    Reset(salary_input); \n    Reset(dropdown_currency);\n    Reset(dropdown_minors);\n    Reset(team_code_input);\n    Reset(date_picker);\n    Reset(project_code_input); \n    Reset(source_input);\n    Reset(dropdown_cd); \n    Reset(dropdown_financial); \n    Reset(dropdown_director);\n);\n"
+                  Text: ="Save"
+                  X: =732
+                  Y: =617
+            - reset_btn:
+                Control: Button@0.0.44
+                Group: Form_btns
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                  OnSelect: =Set(showModal,true)
+                  Text: ="Reset"
+                  X: =614
+                  Y: =617
+      - Screen_title:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(227, 234, 243, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =71
+            Size: =20
+            Text: |-
+              ="Add request / Dodaj wniosek
+              "
+            Width: =1366
+      - Container_information:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Width: =423
+            X: =925
+            Y: =84
+          Children:
+            - Text_info:
+                Control: Text@0.0.50
+                Properties:
+                  Text: ="Info?"
+                  X: =24
+                  Y: =21
+      - Menu_container:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Fill: =RGBA(214, 221, 224, 1)
+            Height: =65
+            Width: =366
+            X: =996
+            Y: =2
+          Children:
+            - move_to_add_req_btn:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  BorderColor: =RGBA(39, 113, 194, 1)
+                  BorderStyle: =BorderStyle.Solid
+                  BorderThickness: =3
+                  Height: =25
+                  Icon: ="Add"
+                  OnSelect: =Navigate(Add_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =21
+                  Y: =9
+            - move_to_pdf_btn:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="DocumentPdf"
+                  OnSelect: "=If(\r\n    varIsHrUser, \r\n    Navigate(Show_PDF_screen, ScreenTransition.Fade), \r\n        Set(NotificationMessage_value, \"Brak dostępu!\");\r\n        Set(NotificationType_value, Toast_notification_1.NotificationTypes.Error);\r\n        Reset(Toast_notification_1);\r\n    \r\n)\r\n"
+                  Text: =
+                  X: =134
+                  Y: =36
+            - move_to_preview_btn:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="AppsList"
+                  OnSelect: =Navigate(Preview_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =248
+                  Y: =9
+            - move_to_correct_req_btn:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Edit"
+                  OnSelect: =Navigate(Correct_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =134
+                  Y: =9
+            - move_to_my_req_btn:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Person"
+                  OnSelect: =Navigate(My_request_screen, ScreenTransition.Fade)
+                  Text: =
+                  X: =248
+                  Y: =36
+            - move_to_all_req_btn:
+                Control: Button@0.0.44
+                Properties:
+                  Align: =Align.Center
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Height: =25
+                  Icon: ="Search"
+                  OnSelect: "=If(\r\n    varIsHrUser, \r\n    Navigate(All_requests_screen, ScreenTransition.Fade), \r\n        Set(NotificationMessage_value, \"Brak dostępu!\");\r\n        Set(NotificationType_value, Toast_notification_1.NotificationTypes.Error);\r\n        Reset(Toast_notification_1);\r\n    \r\n)\r\n"
+                  Text: =
+                  X: =21
+                  Y: =36
+      - Modal_bg:
+          Control: Rectangle@2.3.0
+          Group: Modal_reset
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0.3)
+            Height: =768
+            OnSelect: =Set(showModal,false)
+            Visible: =showModal
+            Width: =1366
+      - Modal_container:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Group: Modal_reset
+          Properties:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =136
+            Visible: =showModal
+            Width: =370
+            X: =498
+            Y: =316
+          Children:
+            - Modal_text:
+                Control: Text@0.0.50
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Height: =67
+                  Text: ="Are you sure you want to clear all fields?"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Visible: =showModal
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =370
+            - Btn_Yes:
+                Control: Button@0.0.44
+                Group: Modal_btn
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  FontWeight: =FontWeight.Normal
+                  OnSelect: |-
+                    =
+                        Reset(dropdown_location);
+                        Reset(position_input); 
+                        Reset(place_input); 
+                        Reset(dropdown_contract); 
+                        Reset(dropdown_working_time); 
+                        Reset(reson_textarea);
+                        Reset(dropdown_rate); 
+                        Reset(salary_input); 
+                        Reset(dropdown_currency);
+                        Reset(dropdown_minors);
+                        Reset(team_code_input);
+                        Reset(date_picker);
+                        Reset(project_code_input); 
+                        Reset(source_input);
+                        Reset(dropdown_cd); 
+                        Reset(dropdown_financial); 
+                        Reset(dropdown_director);
+                        Set(showModal,false)
+                  Text: ="Yes"
+                  Visible: =showModal
+                  X: =209
+                  Y: =80
+            - Btn_No:
+                Control: Button@0.0.44
+                Group: Modal_btn
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  OnSelect: |+
+                    =Set(showModal,false);
+                  Text: ="No"
+                  Visible: =showModal
+                  X: =60
+                  Y: =80
+      - Toast_notification_1:
+          Control: CanvasComponent
+          ComponentName: Toast Notification
+          Properties:
+            Duration: =2000
+            Font: =Font.'Segoe UI'
+            FontSize: =9
+            Height: =67
+            Icons: |-
+              ={
+                  Success: $"data:image/svg+xml; utf-8, { EncodeUrl($"<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g>
+              <ellipse xmlns='http://www.w3.org/2000/svg' style='' cx='256' cy='256' rx='256' ry='255.832' fill='#ffffff' data-original='#32bea6' class=''></ellipse>
+              <polygon xmlns='http://www.w3.org/2000/svg' style='' points='235.472,392.08 114.432,297.784 148.848,253.616 223.176,311.52 345.848,134.504   391.88,166.392 ' fill='{ Toast_notification_1.Styles.Colors.Success }' data-original='#ffffff'></polygon></g></svg>") }",
+                  Warning: $"data:image/svg+xml; utf-8, { EncodeUrl($"<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 128 128' style='enable-background:new 0 0 512 512' xml:space='preserve' class='hovered-paths'><g><g xmlns='http://www.w3.org/2000/svg'><path d='m56.463 14.337-49.563 92.307c-2.8 5.217 1.273 11.356 7.537 11.356h99.126c6.264 0 10.338-6.139 7.537-11.356l-49.563-92.307c-3.106-5.783-11.968-5.783-15.074 0z' fill='#ffffff' data-original='#ffffff' class='hovered-path'></path><g fill='{ Toast_notification_1.Styles.Colors.Warning }'><path d='m64 31.726a5.418 5.418 0 0 0 -5.5 5.45l1.017 44.289a4.422 4.422 0 0 0 4.483 4.261 4.422 4.422 0 0 0 4.482-4.261l1.018-44.289a5.418 5.418 0 0 0 -5.5-5.45z' fill='{ Toast_notification_1.Styles.Colors.Warning }' data-original='{ Toast_notification_1.Styles.Colors.Warning }'></path><circle cx='64' cy='100.222' r='6' fill='{ Toast_notification_1.Styles.Colors.Warning }' data-original='{ Toast_notification_1.Styles.Colors.Warning }'></circle></g></g></g></svg>") }",
+                  Error: $"data:image/svg+xml; utf-8, { EncodeUrl($"<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g>
+              <ellipse xmlns='http://www.w3.org/2000/svg' style='' cx='256' cy='256' rx='256' ry='255.832' fill='#ffffff' data-original='#e04f5f' class=''></ellipse>
+              <g xmlns='http://www.w3.org/2000/svg' transform='matrix(-0.7071 0.7071 -0.7071 -0.7071 77.26 32)'>
+              <rect x='3.98' y='-427.615' style='' width='55.992' height='285.672' fill='{ Toast_notification_1.Styles.Colors.Error }' data-original='#ffffff' class=''></rect>
+              <rect x='-110.828' y='-312.815' style='' width='285.672' height='55.992' fill='{ Toast_notification_1.Styles.Colors.Error }' data-original='#ffffff' class=''></rect>
+              </g></g></svg>") }",
+                  Info: $"data:image/svg+xml; utf-8, { EncodeUrl($"<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''><g>
+              <g xmlns='http://www.w3.org/2000/svg'><g><g><path d='M290.211,360.727c-5.234,0.488-10.489-0.693-15.011-3.375c-3.304-3.392-4.888-8.101-4.305-12.8     c0.122-3.912,0.589-7.806,1.396-11.636c0.781-4.394,1.79-8.744,3.025-13.033l13.731-47.244c1.416-4.663,2.352-9.459,2.793-14.313     c0-5.236,0.698-8.844,0.698-10.938c0.292-9.333-3.693-18.289-10.822-24.32c-8.769-6.732-19.689-10.041-30.72-9.309     c-7.905,0.119-15.749,1.413-23.273,3.84c-8.223,2.56-16.873,5.624-25.949,9.193l-3.956,15.36     c2.676-0.931,5.935-1.978,9.658-3.142c3.552-1.052,7.234-1.601,10.938-1.629c5.196-0.563,10.426,0.713,14.778,3.607     c2.956,3.527,4.343,8.109,3.84,12.684c-0.013,3.913-0.442,7.814-1.28,11.636c-0.815,4.073-1.862,8.378-3.142,12.916     l-13.847,47.476c-1.116,4.413-2.009,8.879-2.676,13.382c-0.544,3.855-0.816,7.743-0.815,11.636     c-0.057,9.397,4.24,18.291,11.636,24.087c8.904,6.837,19.98,10.226,31.185,9.542c7.89,0.162,15.753-0.978,23.273-3.375     c6.594-2.25,15.399-5.469,26.415-9.658l3.724-14.662c-2.984,1.238-6.057,2.249-9.193,3.025     C298.346,360.583,294.274,360.935,290.211,360.727z' fill='#ffffff' data-original='#ffffff' class=''></path><path d='M304.756,136.727c-6.333-5.816-14.677-8.945-23.273-8.727c-8.591-0.194-16.927,2.932-23.273,8.727     c-11.632,10.03-12.931,27.591-2.9,39.224c0.894,1.037,1.863,2.006,2.9,2.9c13.252,11.853,33.294,11.853,46.545,0     c11.632-10.129,12.851-27.769,2.722-39.401C306.635,138.481,305.725,137.571,304.756,136.727z' fill='#ffffff' data-original='#ffffff' class=''></path><path d='M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,488.727     C127.468,488.727,23.273,384.532,23.273,256S127.468,23.273,256,23.273S488.727,127.468,488.727,256S384.532,488.727,256,488.727     z' fill='#ffffff' data-original='#ffffff' class=''></path></g></g></g></g></svg>") }"
+              }
+            NavigateToScreenWhenNotificationCloses: =App.ActiveScreen
+            NotificationHeight: =60
+            NotificationMessage: =NotificationMessage_value
+            NotificationType: =NotificationType_value
+            NotificationWidth: =310
+            Styles: |-
+              ={
+                  Colors: 
+                  {
+                      Success: "#28a745",
+                      Warning: "#ffc107",
+                      Error: "#dc3545",
+                      Info: "#17a2b8"
+                  }
+              }
+            Visible: =Self.OutIsShowNotification
+            Width: =Toast_notification_1.NotificationWidth
+            Y: =5
