@@ -9,13 +9,14 @@
 5. Set the URL to `recruitment-request`.
 6. Click **Create**.
 7. Choose the appropriate permission groups:
+
    - Click **Next**.
    - Proceed to list creation.
 
-   ![go to settings - site contents](settings.png)
-   ![new subsite](new_subsite.png)
-   ![new subsite - name,link](subsite.png)
-   ![adding groups](subsite_groups.png)
+   ![go to settings - site contents](photos/settings.png)
+   ![new subsite](photos/new_subsite.png)
+   ![new subsite - name,link](photos/subsite.png)
+   ![adding groups](photos/subsite_groups.png)
 
 ## 2. Creating Lists
 
@@ -30,15 +31,14 @@
      - HR should only have **add permissions** without deletion rights.
      - The responsible person should have the highest **Edit permissions**.
 
-![create new list](create_new_list.png)
-![list name](type_list_name.png)
-![select blank list](blank_list.png)
-![all lists](lists.png)
-![create columns](create_column.png)
+![create new list](photos/create_new_list.png)
+![list name](photos/type_list_name.png)
+![select blank list](photos/blank_list.png)
+![all lists](photos/lists.png)
+![create columns](photos/create_column.png)
 
 ## 3. Column and List View Preview and Relationship Diagram
 
-![lookup relation](lookup_relationship.png)
+![lookup relation](photos/lookup_relationship.png)
 
 [Download schema](../../../sharepoint/sharepoint_schema_overview.xlsx)
-
