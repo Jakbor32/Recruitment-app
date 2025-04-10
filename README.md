@@ -12,7 +12,7 @@ This application is a comprehensive HR solution designed to facilitate the secur
 
 The system was developed using a combination of powerful Microsoft technologies, including SharePoint, Power Automate, PowerApps Canvas App - modern controls and themes. By leveraging PowerApps, we provide a seamless user interface for HR professionals to manage the recruitment process. Teams Approvals and Outlook notifications are integrated for streamlined communication and decision-making. Additionally, the application automatically generates PDF documents for recruitment-related forms, improving efficiency and reducing manual paperwork.
 
-![recruitment app](media\app\photos\add_request_screen.JPG)
+![recruitment app](https://github.com/Jakbor32/recruitment-app/blob/main/media/app/photos/add_request_screen.JPG)
 
 ### 2. Application Features
 
@@ -66,17 +66,17 @@ The system was developed using a combination of powerful Microsoft technologies,
 
 #### 1. SharePoint:
 
-- [Link to configure list and columns](media\sharepoint\lists\README.md)
-- [Link to configure sharepoint list security and groups](media\sharepoint\security\README.md)
-- [Link to configure sharepoint views](media\sharepoint\views\README.md)
+- [Link to configure list and columns](https://github.com/Jakbor32/recruitment-app/blob/main/media/sharepoint/lists/README.md)
+- [Link to configure sharepoint list security and groups](https://github.com/Jakbor32/recruitment-app/blob/main/media/sharepoint/security/README.md)
+- [Link to configure sharepoint views](https://github.com/Jakbor32/recruitment-app/blob/main/media/sharepoint/views/README.md)
 
 #### 2. PowerApps:
 
-- [Link to configuration](powerapps\README.md)
+- [Link to configuration](https://github.com/Jakbor32/recruitment-app/blob/main/powerapps/README.md)
 
 #### 3. Power Automate:
 
-- [Link to configuration](power-automate\README.md)
+- [Link to configuration](https://github.com/Jakbor32/recruitment-app/blob/main/power-automate/README.md)
 
 ### 7. Using the Application
 
